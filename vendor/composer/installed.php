@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => 'f42283f112e6c86a4a9204badd4dddb64207b8c5',
+    'reference' => 'f58f82b7f41ce9d9a5cd8bcaf0c7b234c8fbdcb1',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -35,6 +35,15 @@
       array (
         0 => '*',
       ),
+    ),
+    'darryldecode/cart' => 
+    array (
+      'pretty_version' => '4.2.2',
+      'version' => '4.2.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'bc5ff0e1c7d20d621fa63b3218532f2ae7cbf841',
     ),
     'davedevelopment/hamcrest-php' => 
     array (
@@ -431,12 +440,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => 'f42283f112e6c86a4a9204badd4dddb64207b8c5',
+      'reference' => 'f58f82b7f41ce9d9a5cd8bcaf0c7b234c8fbdcb1',
     ),
     'laravel/sail' => 
     array (

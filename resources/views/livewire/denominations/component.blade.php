@@ -78,13 +78,15 @@
         window.livewire.on('item-deleted', msg =>{
             //noty
         });
-        
+        window.livewire.on('show-modal', msg=>{
+            $('#theModal').modal('show')
+        });
         window.livewire.on('modal-hide', msg=>{
             $('#theModal').modal('hide')
         });
         $('#theModal').on('hidden.bs.modal', function (e) {
             $('.er').css('display','none')
-        }
+        })
 
     });
 

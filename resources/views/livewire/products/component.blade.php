@@ -91,9 +91,9 @@
         window.livewire.on('modal-hide', msg=>{
             $('#theModal').modal('hide')
         });
-        $('#theModal').on('hidden.bs.modal', function(e){
-            $('.er').css('display','none')
-        }
+        window.livewire.on('hidden.bs.modal', msg=>{
+            $('.er').css('display', 'none')
+        });
             
 
     });
