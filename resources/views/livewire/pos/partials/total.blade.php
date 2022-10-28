@@ -4,7 +4,7 @@
             <div class="connect-sorting">
                 <h5 class="text-center mb-3">RESUMEN DE VENTA</h5>
                 <div class="connect-sorting-content">
-                    <div class="card simple-title-task ui-sortable-handle">
+                    <div class="card simple-title-task ui-sorting-handle">
                         <div class="card-body">
 
                             <div class="task-header">

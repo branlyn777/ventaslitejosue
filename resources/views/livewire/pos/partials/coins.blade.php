@@ -1,17 +1,16 @@
 <div class="row mt-3">
     <div class="col-ms-12">
         <div class="connect-sorting">
-            <h5 class="text-center mb-2">DENOMINACIONES</h5>
+            <h5 class="text-center mb-2">Denominaciones</h5>
             <div class="container">
                 <div class="row">
                     @foreach($denominations as $d)
                     <div class="col-sm mt-2">
                         <button wire:click.prevent="ACash({{$d->value}})" class="btn btn-dark btn-block den">
-                            {{ $d->value >0 ? '$' . number_format($d->value,2, '.', '') : 'Exacto' }}
+                            {{$d->value > 0 ? '$' . number_format($d->value,2, '.', '') : 'Exacto' }}
                         </button>
                     </div>
                     @endforeach
-                    
                 </div>
             </div>
 
@@ -35,7 +34,6 @@
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete">
                                     <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line>
                                     <line x1="12" y1="9" x2="18" y2="15"></line></svg>
-                                    {{-- <i class="fas fa-backspace fa-2x"></i> ICONO NO RECONOCE --}}
                                 </span>
                             </div>
                         </div>
