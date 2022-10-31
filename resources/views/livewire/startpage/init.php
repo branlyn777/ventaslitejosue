@@ -3,7 +3,7 @@
           <div class="widget widget-chart-one">
             <div class="widget-heading">
                 <h4 class="card-title">
-                    <b>ComponentNme | PageTitle</b>
+                    <b>ComponentName | PageTitle</b>
                 </h4>
                 <ul class="tabs tab-pills">
                     <li>
