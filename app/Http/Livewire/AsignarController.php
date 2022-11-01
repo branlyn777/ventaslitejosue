@@ -39,11 +39,13 @@ class AsignarController extends Component
             $this->old_permissions = $list;
         }
 
-        if($this->role != 'Elegir'){
+        if($this->role != 'Elegir')
+        {
             foreach ($permisos as $permiso){
                 $role = Role::find($this->role);
                 $tienePermiso = $role->hasPermissionTo($permiso->name);
-                if($tienePermiso){
+                if($tienePermiso)
+                {
                     $permiso->checked = 1;
                 }
             }
@@ -51,7 +53,9 @@ class AsignarController extends Component
         return view('livewire.asignar.component',[
             'roles' => Role::orderBy('name','asc')->get(),
             'permisos' => $permisos
-        ])->extends('layouts.theme.app')->section('content');
+        ])
+        ->extends('layouts.theme.app')
+        ->section('content');
     }
 
     public $listeners = ['revokeall' => 'removeAll'];
@@ -82,9 +86,11 @@ class AsignarController extends Component
     
     public function syncPermiso($state, $permisoName)
     {
-        if($this->role != 'Elegir'){
+        if($this->role != 'Elegir')
+        {
             $roleName = Role::find($this->role);
-            if($state){
+            if($state)
+            {
                 $roleName->givePermissionTo($permisoName);
                 $this->emit('permi',"permiso asignado correctamente");
             }else{
