@@ -10,6 +10,8 @@ use App\Http\Livewire\PermisosController;
 use App\Http\Livewire\AsignarController;
 use App\Http\Livewire\UsersController;
 use App\Http\Livewire\CashoutController;
+use App\Http\Livewire\ReportsController;
+use App\Http\Livewire\ExportController;
 
 
 /*
@@ -41,3 +43,10 @@ Route::get('permisos', PermisosController::class);
 Route::get('asignar', AsignarController::class);
 Route::get('users', UsersController::class);
 Route::get('cashout', CashoutController::class);
+Route::get('reports', ReportsController::class);
+
+// Reportes PDF
+Route::get('report/pdf/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
+Route::get('report/pdf/{user}/{type}', [ExportController::class, 'reportPDF']);
+
+// Reportes EXCEL
