@@ -88,7 +88,7 @@
         <table cellpadding="0" cellspacing="0" class="table-items" width="100%">
             <tr>
                 <td width="20%">
-                    <span>Sistema LWPOS v1</span>
+                    <span>Sistema LWPOS v1.1</span>
                 </td>
                 <td width="60%" class="text-center">
                     luisfax.com
