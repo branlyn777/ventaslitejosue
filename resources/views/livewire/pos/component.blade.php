@@ -23,7 +23,12 @@
     
 </div>
 
-<script>
+<script src="{{ asset('js/Keypress.js') }}"></script>
+<script src="{{ asset('js/onscan.js') }}"></script>
 
-</script>
+
+@include('livewire.pos.scripts.shortcuts')
+@include('livewire.pos.scripts.events')
+@include('livewire.pos.scripts.general')
+@include('livewire.pos.scripts.scan')
 

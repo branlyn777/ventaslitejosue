@@ -12,7 +12,7 @@
         swal({
             title: 'CONFIRMAR',
             text: text,
-            type: 'WARNING',
+            type: 'warning',
             showCancelButton: true,
             cancelButtonText: 'cerrar',
             cancelButtonColor: '#fff',

@@ -9,7 +9,7 @@
 
     // F8 Pocicionar 
     listener.simple_combo("f8", function(){
-        document.getElementById('cash').value=''
+        document.getElementById('hiddenTotal').value=''
         document.getElementById('cash').focus()
     })
 

@@ -1,7 +1,7 @@
 <script>
     try{
         onScan.attachTo(document, {
-        suffixkeyCodes: [13],
+        suffixKeyCodes: [13],
         onScan: function(barcode)
         {
             console.log(barcode)

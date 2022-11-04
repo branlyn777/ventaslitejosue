@@ -19,6 +19,7 @@
         </a>
         
         <livewire:search-controller>
+            
         <ul class="navbar-item flex-row navbar-dropdown">
 
             <li class="nav-item dropdown user-profile-dropdown order-lg-0 order-1">

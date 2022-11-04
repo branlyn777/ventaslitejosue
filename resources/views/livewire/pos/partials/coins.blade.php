@@ -1,13 +1,13 @@
 <div class="row mt-3">
     <div class="col-ms-12">
         <div class="connect-sorting">
-            <h5 class="text-center mb-2">Denominaciones</h5>
+            <h5 class="text-center mb-2">DENOMIINACIONES</h5>
             <div class="container">
                 <div class="row">
                     @foreach($denominations as $d)
                     <div class="col-sm mt-2">
                         <button wire:click.prevent="ACash({{$d->value}})" class="btn btn-dark btn-block den">
-                            {{$d->value > 0 ? '$' . number_format($d->value,2, '.', '') : 'Exacto' }}
+                            {{ $d->value > 0 ? '$' . number_format($d->value,2, '.', '') : 'Exacto' }}
                         </button>
                     </div>
                     @endforeach
@@ -29,7 +29,7 @@
                             class="form-control text-center" value="{{$efectivo}}">
                             
                             <div class="input-group-append">
-                                <span wire:click="$set('efectivo',0)" class="input-group-text" style="background: #3b3f5c;color:white">
+                                <span wire:click="$set('efectivo',0)" class="input-group-text" style="background: #3b3f5c; color:white">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete">
                                     <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line>
@@ -41,7 +41,8 @@
                         <div class="row justify-content-between mt-5">
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 @if($total > 0)
-                                <button wire:click.prevent="clearCart"
+                                {{-- <button wire:click.prevent="clearCart" --}}
+                                <button onclick="Confirm('','clearCart','¿SEGURO DE ELIMINAR EL CARRITO?')"
                                 class="btn btn-dark mtmobile">
                                     CANCELAR F4
                                 </button>
