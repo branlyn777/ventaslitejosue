@@ -6,6 +6,7 @@ use Darryldecode\Cart\Facades\CartFacade as Cart;
 use App\Models\Denomination;
 use Livewire\Component;
 use App\Models\Product;
+
 use App\Models\Sale;
 use App\Models\SaleDetails;
 use Illuminate\Support\Facades\DB;
@@ -24,19 +25,25 @@ class PosController extends Component
     }
     public function render()
     {
+
+
+
+
+
         return view('livewire.pos.component', [
-            'denominations' => Denomination::orderBy('id', 'asc')->get(),
+            'denominations' => Denomination::orderBy('value', 'desc')->get(),
             'cart' => Cart::getContent()->sortBy('name'),
         ])
             ->extends('layouts.theme.app')
             ->section('content');
     }
 
-    public function ACash($value){
-        if($this->efectivo == "")
+    public function ACash($value)
+    {
+        /* if($this->efectivo == "")
         {
             $this->efectivo = 0;
-        }
+        } */
         $this->efectivo += ($value == 0 ? $this->total : $value);
         $this->change = ($this->efectivo - $this->total);
     }
@@ -50,33 +57,45 @@ class PosController extends Component
 
     public function ScanCode($barcode, $cant = 1)
     {
-        dd($barcode);
+        /* dd($barcode); */
         $product = Product::where('barcode', $barcode)->first();
+
         
-        if($product == null || empty($empty)) //product
+        if($product == null /* || empty($empty) */) //product
         {
-            //dd($product);
+            /* dd($product); */
             $this->emit('scan-notfound','El producto no esta registrado');
-        }else{
+        }
+        else
+        {
             
             if($this->InCart($product->id))
             {
                 $this->increaseQty($product->id);
                 return;
             }
-            if($product->stock < 1)
+            if($product->stock <1)
             {
-                $this->emit('no-stock','Stock insuficiente :(');
+                $this->emit('no-stock','Stock insuficiente :/');
                 return;
             }
 
-            Cart::add($product->id, $product->name, $product->price, 
-            $cant, $product->imagen);
+
+            Cart::add($product->id, $product->name, $product->price, $cant, $product->image);
 
             $this->total = Cart::getTotal();
+
+
+        
+
+
             /* $this->itemsQuantity = Cart::getTotalQuantity(); */
             $this->emit('scan-ok', 'Producto agregado');
         }
+
+
+        
+
     }
 
     public function InCart($productId)
@@ -97,7 +116,9 @@ class PosController extends Component
             $title = 'Cantidad actualizada';
         else
             $title = 'Producto agregado';
-        if($exist){
+
+        if($exist)
+        {
             if($product->stock < ($cant + $exist->quantity))
             {
                 $this->emit('no-stock', 'Stock insuficiente :/');
@@ -132,9 +153,9 @@ class PosController extends Component
 
         $this->removeItem($productId);
         
-        if($cant > 0){
-            Cart::add($product->id, $product->name, $product->price, 
-            $cant, $product->image);
+        if($cant > 0)
+        {
+            Cart::add($product->id, $product->name, $product->price, $cant, $product->image);
 
             $this->total = Cart::getTotal();
             $this->itemsQuantity = Cart::getTotalQuantity();
@@ -161,8 +182,7 @@ class PosController extends Component
         $newQty = ($item->quantity) - 1;
 
         if($newQty > 0)
-            Cart::add($item->id, $item->name, $item->price, 
-            $newQty, $item->attributes[0]);
+            Cart::add($item->id, $item->name, $item->price, $newQty, $item->attributes[0]);
         
         $this->total = Cart::getTotal();
         $this->itemsQuantity = Cart::getTotalQuantity();
@@ -189,7 +209,7 @@ class PosController extends Component
         }
         if($this->efectivo <= 0)
         {
-            $this->emit('sale-error', 'INGRESA EFECTIVO');
+            $this->emit('sale-error', 'INGRESA EL  EFECTIVO');
             return;
         }
         if($this->total > $this->efectivo)
