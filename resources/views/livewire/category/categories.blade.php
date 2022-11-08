@@ -6,13 +6,17 @@
                     <b>{{$componentName}} | {{$pageTitle}}</b>
                 </h4>
                 <ul class="tabs tab-pills">
+                    @can('Category_Create')
                     <li>
                         <a href="javascript:void(0)" class="tabmenu bg-dark" data-toggle="modal"
                          data-target="#theModal">Agregar</a>
                     </li>
+                    @endcan
                 </ul>
             </div>
-            @include('common.searchbox')
+            @can('Category_Search')
+                @include('common.searchbox')
+            @endcan
 
              <div class="widget-content">
 
@@ -37,6 +41,7 @@
                                     </td>
 
                                     <td class="text-center">
+                                        @can('Category_Update')
                                         <a href="javascript:void(0)"
                                         wire:click="Edit({{$category->id}})"
                                          class="btn btn-dark mtmobile" title="Edit">
@@ -47,7 +52,9 @@
                                             {{-- <i class="fas fa-edit"></i> ICONO NO RECONOCE --}}
 
                                         </a>
+                                        @endcan
 
+                                        @can('Category_Destroy')
                                         <a href="javascript:void(0)" 
                                         onclick="Confirm('{{$category->id}}','{{$category->products->count()}}')"
                                         class="btn btn-dark" title="Delete">
@@ -57,6 +64,7 @@
                                         1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                                             {{-- <i class="fas fa-trash"></i> ICONO NO RECONOCE --}}
                                         </a>
+                                        @endcan
                                         {{-- {{$category->imagen}} --}}
                                         
                                     </td>

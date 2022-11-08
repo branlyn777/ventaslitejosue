@@ -65,9 +65,7 @@ class PosController extends Component
         {
             /* dd($product); */
             $this->emit('scan-notfound','El producto no esta registrado');
-        }
-        else
-        {
+        }  else  {
             
             if($this->InCart($product->id))
             {
@@ -226,7 +224,7 @@ class PosController extends Component
                 'items' => $this->itemsQuantity,
                 'cash' => $this->efectivo,
                 'change' => $this->change,
-                'user_id' => Auth()->user()->id
+                'user_id' => Auth()->user()->id,
             ]);
 
             if($sale)

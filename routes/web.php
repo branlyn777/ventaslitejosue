@@ -33,20 +33,27 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::middleware(['auth'])->group(function(){
+    Route::get('categories', CategoriesController::class)->middleware('role:Admin');
+    Route::get('products', ProductsController::class);
+    Route::get('coins', CoinsController::class);
+    Route::get('pos', PosController::class);
 
-Route::get('categories', CategoriesController::class);
-Route::get('products', ProductsController::class);
-Route::get('coins', CoinsController::class);
-Route::get('pos', PosController::class);
-Route::get('roles', RolesController::class);
-Route::get('permisos', PermisosController::class);
-Route::get('asignar', AsignarController::class);
-Route::get('users', UsersController::class);
-Route::get('cashout', CashoutController::class);
-Route::get('reports', ReportsController::class);
+    Route::group(['middleware' => ['role:Admin']], function () {
+        Route::get('roles', RolesController::class);
+        Route::get('permisos', PermisosController::class);
+        Route::get('asignar', AsignarController::class);
+    });
+    Route::get('users', UsersController::class);
+    Route::get('cashout', CashoutController::class);
+    Route::get('reports', ReportsController::class);
 
-// Reportes PDF
-Route::get('report/pdf/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
-Route::get('report/pdf/{user}/{type}', [ExportController::class, 'reportPDF']);
+    // Reportes PDF
+    Route::get('report/pdf/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
+    Route::get('report/pdf/{user}/{type}', [ExportController::class, 'reportPDF']);
 
-// Reportes EXCEL
+    // REPORTES EXCEL
+    Route::get('report/excel/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reporteExcel']);
+    Route::get('report/excel/{user}/{type}', [ExportController::class, 'reporteExcel']);
+});
+
