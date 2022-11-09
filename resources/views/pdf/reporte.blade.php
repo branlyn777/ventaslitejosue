@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> --}}
     <title>Reporte de ventas</title>
-    <link rel="stylesheet" href="{{ asset('css/custom_pdf.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/custom_page.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/custom_pdf.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom_page.css') }}">
 </head>
 <body>
     <section class="header" style="top: -287px;">
         <table cellpadding="0" cellspacing="0" width="100%">
             <tr>
                 <td colspan="2" class="text-center">
-                    <span style="font-size: 25px; font-weight: bold;">Sistem LWPOS</span>
+                    <span style="font-size: 25px; font-weight: bold;">Sistema LWPOS</span>
                 </td>
             </tr>
 
             <tr>
                 <td width="30%" style="vertical-align: top; padding-top: 10px; position: relative">
-                    <img src="{{ asset('assets/img/logo.png') }}" class="invoice-logo">
+                    <img src="{{ asset('assets/img/livewire_logo.png') }}" alt="" class="invoice-logo">
                 </td>
                 <td width="70%" class="text-left text-company" style="vertical-align: top; padding-top: 10px">
                     @if ($reportType == 0)

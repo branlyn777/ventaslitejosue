@@ -9,6 +9,7 @@ use App\Models\Product;
 
 use App\Models\Sale;
 use App\Models\SaleDetails;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -200,6 +201,7 @@ class PosController extends Component
 
     public function saveSale()
     {
+
         if($this->total <= 0)
         {
             $this->emit('sale-error', 'AGREGAR PRODUCTOS A LA VENTA');
@@ -224,8 +226,10 @@ class PosController extends Component
                 'items' => $this->itemsQuantity,
                 'cash' => $this->efectivo,
                 'change' => $this->change,
-                'user_id' => Auth()->user()->id,
+                'user_id' => Auth()->user()->id
             ]);
+            $sale->save();
+
 
             if($sale)
             {
@@ -260,6 +264,7 @@ class PosController extends Component
         } catch (Exception $e)
         {
             DB::rollback();
+            /* dd("Error"); */
             $this->emit('sale-error', $e->getMessage());
         }
     }

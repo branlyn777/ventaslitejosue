@@ -35,7 +35,8 @@
                             <tr>
                                 <td colspan="3"><h5 class="text-center font-weight-bold">TOTALES</h5></td>
                                 <td><h5 class="text-center">{{$countDetails}}</h5></td>
-                                <td><h5 class="text-center">${{number_format($sumDetails,2)}}</h5></td>
+                                <td><h5 class="text-center">
+                                    ${{number_format($sumDetails,2)}}</h5></td>
                             </tr>
                         </tfoot>
                     </table>

@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\PDF as PDF;
 use Carbon\Carbon;
 use App\Models\Sale;
-use App\Models\SaleDetails;
+use App\Models\SaleDetail;
 use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
-use PhpParser\Node\Stmt\Return_;
 
 class ExportController extends Controller
 {
@@ -20,11 +19,11 @@ class ExportController extends Controller
 
         if($reportType == 0)  //Ventas del dia
         {
-            $from = Carbon::parse(Carbon::now())->format('Y-m-d') . '00:00:00';
-            $to = Carbon::parse(Carbon::now())->format('Y-m-d')   . '23:59:59';
+            $from = Carbon::parse(Carbon::now())->format('Y-m-d') . ' 00:00:00';
+            $to = Carbon::parse(Carbon::now())->format('Y-m-d')   . ' 23:59:59';
         } else {
-            $from = Carbon::parse($dateFrom)->format('Y-m-d') . '00:00:00';
-            $to = Carbon::parse($dateTo)->format('Y-m-d')     . '23:59:59';
+            $from = Carbon::parse($dateFrom)->format('Y-m-d') . ' 00:00:00';
+            $to = Carbon::parse($dateTo)->format('Y-m-d')     . ' 23:59:59';
         }
 
 
@@ -43,6 +42,11 @@ class ExportController extends Controller
         }
 
         $user = $userId == 0 ? 'Todos' : User::find($userId)->name;
+
+
+
+
+
         $pdf = PDF::loadView('pdf.reporte', compact('data', 'reportType', 'user', 'dateFrom', 'dateTo'));
 
         return $pdf->stream('salesReport.pdf');  //visualizar

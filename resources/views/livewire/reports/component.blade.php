@@ -12,7 +12,7 @@
                         <div class="row">
 
                             <div class="col-sm-12">
-                                <h6>Elije el usuario</h6>
+                                <h6>Elige el usuario</h6>
                                 <div class="form-group">
                                     <select wire:model="userId"
                                      class="form-control">
@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="col-sm-12">
-                                <h6>Elije el tipo de reporte</h6>
+                                <h6>Elige el tipo de reporte</h6>
                                 <div class="form-group">
                                     <select wire:model="reportType"
                                      class="form-control">
@@ -38,8 +38,8 @@
                             <div class="col-sm-12 mt-2">
                                 <h6>Fecha desde</h6>
                                 <div class="form-group">
-                                    <input type="text" wire:model="dateFrom" 
-                                    class="form-control flatpickr" placeholder="Click para elejir">
+                                    <input type="text" wire:model="dateFrom" class="form-control 
+                                    flatpickr" placeholder="Click para elejir">
                                 </div>
                             </div>
 
@@ -56,15 +56,14 @@
                                     Consultar
                                 </button>
 
-                                <a class="btn btn-dark btn-block {{count($data) < 1 ? 'disabled' : '' }}"
+                                <a class="btn btn-dark btn-block {{count($data) <1 ? 'disabled' : '' }}"
                                 href="{{ url('report/pdf' . '/' . $userId . '/' . $reportType . '/'
                                  . $dateFrom . '/' . $dateTo) }}" target="_blank">Generar a PDF</a>
                                 
-                                <a class="btn btn-dark btn-block {{count($data) < 1 ? 'disabled' : '' }}"
+                                <a class="btn btn-dark btn-block {{count($data) <1 ? 'disabled' : '' }}"
                                 href="{{ url('report/excel' . '/' . $userId . '/' . $reportType . '/'
-                                . $dateFrom . '/' . $dateTo)}}" target="_blank">Exportar a Excel</a>
+                                . $dateFrom . '/' . $dateTo) }}" target="_blank">Exportar a Excel</a>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-9">

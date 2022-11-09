@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\CategoriesController;
 use App\Http\Livewire\ProductsController;
@@ -11,7 +12,6 @@ use App\Http\Livewire\AsignarController;
 use App\Http\Livewire\UsersController;
 use App\Http\Livewire\CashoutController;
 use App\Http\Livewire\ReportsController;
-use App\Http\Livewire\ExportController;
 
 
 /*
